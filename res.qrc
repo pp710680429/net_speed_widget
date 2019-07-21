@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/icon">
+        <file alias="下载">image/下载.png</file>
+        <file alias="上传">image/上传.png</file>
+    </qresource>
+</RCC>
