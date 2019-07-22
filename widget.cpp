@@ -33,16 +33,19 @@ void Widget::Init()
     setAttribute(Qt::WA_TranslucentBackground); //设置背景透明
 
     QDesktopWidget* pDesktopWidget = QApplication::desktop();
-    this->move(pDesktopWidget->width() - this->size().width() + 50,pDesktopWidget->height() / 2 + 100);
+    this->move(pDesktopWidget->width() - this->size().width() - 200,pDesktopWidget->height() / 2 + 100);
     this->setWindowFlags(this->windowFlags() | Qt::WindowStaysOnTopHint
                      | Qt::Tool | Qt::FramelessWindowHint);
 
     timer = new QTimer;
+    weather = new Weather;
+    weather->resize(80,size().height());
     timer->start(1500);
+    ui->horizontalLayout_2->addWidget(weather);
 
     getNetworkBandWidth(olddown,oldup);
 
-    connect(timer,&QTimer::timeout,this,[=]{
+    connect(timer,&QTimer::timeout,this,[=](){
         getNetworkBandWidth(down,up);
 
         ui->label_up->setText(this->getFormatSpeed(up - oldup));
@@ -130,14 +133,18 @@ void Widget::mouseReleaseEvent(QMouseEvent *event)
 
 void Widget::contextMenuEvent(QContextMenuEvent *event)
 {
+    Q_UNUSED(event);
     static  QMenu *menu = new QMenu(this);
     if(menu->actions().length() == 0){
-        menu->addAction(new QAction(tr("&Refresh"), menu));
-        menu->addAction(new QAction(tr("&Quit"), menu));
+        menu->addAction(new QAction(tr("&刷新"), menu));
+        menu->addAction(new QAction(tr("&退出"), menu));
 
         connect(menu,&QMenu::triggered,this,[=](QAction *action){
-            if(action->text() == "&Quit"){
+            if(action->text() == "&退出"){
                 this->close();
+                QApplication::quit();
+            }else {
+                weather->reflashWeather();
             }
         });
     }

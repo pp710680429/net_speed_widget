@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui
+QT       += core gui network widgets
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -25,11 +25,20 @@ DEFINES += QT_DEPRECATED_WARNINGS
 CONFIG += c++11
 
 SOURCES += main.cpp\
-        widget.cpp
+        widget.cpp \
+    weather.cpp \
+    changcity.cpp
 
-HEADERS  += widget.h
+HEADERS  += widget.h \
+    weather.h \
+    changcity.h
 
-FORMS    += widget.ui
+FORMS    += widget.ui \
+    changcity.ui
 
 RESOURCES += \
     res.qrc
+
+
+CONFIG += link_pkgconfig
+PKGCONFIG += dtkwidget

@@ -9,6 +9,7 @@
 #include <QApplication>
 #include <QDesktopWidget>
 #include <QDebug>
+#include "weather.h"
 
 namespace Ui {
 class Widget;
@@ -30,6 +31,7 @@ private:
     bool isPress;
     QPoint oldPoint;
     QTimer * timer;
+    Weather * weather;
 
    void getNetworkBandWidth(unsigned long long int &receiveBytes, unsigned long long int &sendBytes);
    QString getFormatSpeed(unsigned long long i);

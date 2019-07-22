@@ -3,4 +3,19 @@
         <file alias="下载">image/下载.png</file>
         <file alias="上传">image/上传.png</file>
     </qresource>
+    <qresource prefix="/json">
+        <file alias="city">json/city.json</file>
+    </qresource>
+    <qresource prefix="/weather">
+        <file>image/lei.png</file>
+        <file>image/xue.png</file>
+        <file>image/wu.png</file>
+        <file>image/yin.png</file>
+        <file>image/yun.png</file>
+        <file>image/shachen.png</file>
+        <file>image/bingbao.png</file>
+        <file>image/qing.png</file>
+        <file>image/yu.png</file>
+        <file>image/error.png</file>
+    </qresource>
 </RCC>
