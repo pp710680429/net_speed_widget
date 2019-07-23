@@ -10,6 +10,7 @@
 #include <QDesktopWidget>
 #include <QDebug>
 #include "weather.h"
+#include "temperature.h"
 
 namespace Ui {
 class Widget;
@@ -32,17 +33,17 @@ private:
     QPoint oldPoint;
     QTimer * timer;
     Weather * weather;
+    Temperature * temperature;
 
-   void getNetworkBandWidth(unsigned long long int &receiveBytes, unsigned long long int &sendBytes);
-   QString getFormatSpeed(unsigned long long i);
-   unsigned long long  oldup,olddown,up,down;
+    void getNetworkBandWidth(unsigned long long int &receiveBytes, unsigned long long int &sendBytes);
+    QString getFormatSpeed(unsigned long long i);
+    unsigned long long  oldup,olddown,up,down;
 
 protected:
-   void mouseMoveEvent(QMouseEvent *event);
-   void mousePressEvent(QMouseEvent *event);
-   void mouseReleaseEvent(QMouseEvent *event);
-   void contextMenuEvent(QContextMenuEvent *event);
-
+    void mouseMoveEvent(QMouseEvent *event);
+    void mousePressEvent(QMouseEvent *event);
+    void mouseReleaseEvent(QMouseEvent *event);
+    void contextMenuEvent(QContextMenuEvent *event);
 };
 
 #endif // WIDGET_H

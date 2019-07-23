@@ -160,7 +160,7 @@ void Weather::InitUi()
     weartherlayout->setMargin(0);
     mainlayout->setMargin(0);
 
-    setStyleSheet("color:rgb(0, 0, 227)"); //为了和widget.h保持一致
+    //setStyleSheet("color:rgb(0, 0, 227)"); //为了和widget.h保持一致
 }
 
 void Weather::replyFinished(QNetworkReply *reply)

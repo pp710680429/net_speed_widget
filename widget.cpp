@@ -1,6 +1,8 @@
 #include "widget.h"
 #include "ui_widget.h"
 
+#include <QPainter>
+
 Widget::Widget(QWidget *parent) :
     QWidget(parent),
     ui(new Ui::Widget)
@@ -30,7 +32,9 @@ void Widget::Init()
     ui->label->setPixmap(img1);
     ui->label_2->setPixmap(img2);
 
-    setAttribute(Qt::WA_TranslucentBackground); //设置背景透明
+
+    //widget.ui中的widget的qss也要改（background-color)
+    this->setAttribute(Qt::WA_TranslucentBackground); //设置背景透明
 
     QDesktopWidget* pDesktopWidget = QApplication::desktop();
     this->move(pDesktopWidget->width() - this->size().width() - 200,pDesktopWidget->height() / 2 + 100);
@@ -39,9 +43,12 @@ void Widget::Init()
 
     timer = new QTimer;
     weather = new Weather;
+    temperature = new Temperature(this);
     weather->resize(80,size().height());
-    timer->start(1500);
+    timer->start(1500);  //正确的应该是1000,这所以是1500,是因为这样会让你的网速看起来更快！
+
     ui->horizontalLayout_2->addWidget(weather);
+    ui->horizontalLayout_2->insertWidget(0,temperature);
 
     getNetworkBandWidth(olddown,oldup);
 
@@ -151,4 +158,5 @@ void Widget::contextMenuEvent(QContextMenuEvent *event)
     menu->move(cursor().pos()); //让菜单显示的位置在鼠标的坐标上
     menu->show();
 }
+
 

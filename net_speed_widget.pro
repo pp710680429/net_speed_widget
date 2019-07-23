@@ -4,7 +4,7 @@
 #
 #-------------------------------------------------
 
-QT       += core gui network widgets
+QT       += core gui network
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -27,11 +27,13 @@ CONFIG += c++11
 SOURCES += main.cpp\
         widget.cpp \
     weather.cpp \
-    changcity.cpp
+    changcity.cpp \
+    temperature.cpp
 
 HEADERS  += widget.h \
     weather.h \
-    changcity.h
+    changcity.h \
+    temperature.h
 
 FORMS    += widget.ui \
     changcity.ui

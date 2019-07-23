@@ -6,15 +6,16 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>102</width>
-    <height>59</height>
+    <width>72</width>
+    <height>46</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Widget</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">color:rgb(0, 0, 227)</string>
+   <string notr="true">color:rgb(0, 85, 255);
+/*background-color: rgb(248, 248, 248);*/</string>
   </property>
   <layout class="QHBoxLayout" name="horizontalLayout_2">
    <property name="leftMargin">
@@ -54,7 +55,7 @@
        <item>
         <widget class="QLabel" name="label_up">
          <property name="styleSheet">
-          <string notr="true">color:rgb(0, 0, 227)</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>0 KB/s</string>
@@ -64,7 +65,7 @@
        <item>
         <widget class="QLabel" name="label_down">
          <property name="styleSheet">
-          <string notr="true">color:rgb(0, 0, 227)</string>
+          <string notr="true"/>
          </property>
          <property name="text">
           <string>0 KB/s</string>

@@ -1,6 +1,10 @@
 #ifndef WEATHER_H
 #define WEATHER_H
 
+/*
+ * 显示天气
+ */
+
 #include <QWidget>
 #include <QNetworkAccessManager>
 #include <QJsonArray>
